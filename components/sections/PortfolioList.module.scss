@@ -1,0 +1,23 @@
+/* PortfolioList.module.scss */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+.list li:hover {
+  background-color: #f0f0f0;
+}
+
+.loading {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #888;
+}
