@@ -1,42 +1,39 @@
 "use client";
 
 import { NotionPost } from "@/types/notion";
-import { useEffect, useState } from "react";
-import { NotionRenderer } from "react-notion-x";
+import { useState } from "react";
 import { ExtendedRecordMap } from "notion-types";
 import styles from "./PortfolioList.module.scss";
 import Render from "../notion/Render";
+import { Dialog } from "../ui/dialog/Dialog";
 
-type PostListProps = {
+interface PostListProps {
   posts: NotionPost[];
-};
+}
 
 export const PortfolioList: React.FC<PostListProps> = ({ posts }) => {
   const [recordMap, setRecordMap] = useState<ExtendedRecordMap | null>(null);
-  const [pageId, setPageId] = useState<string | null>(null);
+  const [pageId, setPageId] = useState<string>("");
   const [loading, setLoading] = useState(false);
-
-  const handleClick = (pageId: string) => {
-    setPageId(pageId);
+  const handleClick = async (id: string) => {
+    setLoading(true);
+    setPageId(id);
+    try {
+      const res = await fetch(`/api/notion?pageId=${id}`);
+      const data = await res.json();
+      console.log("data", data);
+      setRecordMap(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  useEffect(() => {
-    async function loadPageData() {
-      setLoading(true);
-      try {
-        const response = await fetch(`/api/getData?pageId=${pageId}`);
-        const data = await response.json();
-        setRecordMap(data);
-      } catch (error) {
-        console.error("Error loading page data:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    if (pageId) {
-      loadPageData();
-    }
-  }, [pageId]);
+  const handleClose = () => {
+    setRecordMap(null);
+    setPageId("");
+  };
 
   return (
     <div>
@@ -47,10 +44,15 @@ export const PortfolioList: React.FC<PostListProps> = ({ posts }) => {
           </li>
         ))}
       </ul>
-      {loading && <div className={styles.loading}>Loading...</div>}
-      {recordMap && !loading && (
-        <Render recordMap={recordMap} rootPageId={pageId} />
-      )}
+
+      <Dialog open={!!recordMap} onOpenChange={handleClose}>
+        {loading && <div className={styles.loading}>Loading...</div>}
+        {recordMap && !loading && (
+          <Render recordMap={recordMap} rootPageId={pageId} />
+        )}
+      </Dialog>
     </div>
   );
 };
+
+export default PortfolioList;
