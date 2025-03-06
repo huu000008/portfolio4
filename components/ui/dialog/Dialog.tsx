@@ -2,6 +2,7 @@
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ReactNode } from "react";
+import styles from "./Dialog.module.scss";
 
 interface DialogProps {
   open: boolean;
@@ -11,7 +12,7 @@ interface DialogProps {
 export const Dialog = ({ open, onOpenChange, children }: DialogProps) => (
   <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay />
+      <DialogPrimitive.Overlay className={styles.overlay} />
       <DialogPrimitive.Content>
         <DialogPrimitive.Title />
         {children}
