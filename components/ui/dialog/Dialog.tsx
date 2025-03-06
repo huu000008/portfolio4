@@ -8,7 +8,6 @@ interface DialogProps {
   onOpenChange: (open: boolean) => void;
   children: ReactNode;
 }
-
 export const Dialog = ({ open, onOpenChange, children }: DialogProps) => (
   <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
     <DialogPrimitive.Portal>
