@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
-import "./globals.css";
+import "./globals.scss";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

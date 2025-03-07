@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 import { NotionAPI } from "notion-client";
-import { NotionPost } from "@/types/notion";
+
 
 export const notion = new NotionAPI();
 
@@ -12,7 +12,7 @@ export const notionDatabase = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export async function getDatabase(): Promise<NotionPost[]> {
+export async function getDatabase(): Promise<any[]> {
   const databaseId = process.env.NOTION_DATABASE_ID;
 
   if (!databaseId) {
