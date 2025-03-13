@@ -1,20 +1,18 @@
 /* PortfolioList.module.scss */
 .list {
   display: grid;
-
-
-
-  
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
   list-style: none;
   padding: 0;
 }
 
 .list li {
-  cursor: pointer;
   padding: 10px;
   border: 1px solid #ccc;
   margin-bottom: 5px;
   transition: background-color 0.3s;
+  border-radius: 10px;
 }
 
 .list li:hover {
