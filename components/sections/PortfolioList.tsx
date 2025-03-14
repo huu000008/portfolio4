@@ -14,7 +14,8 @@ interface PortfolioListProps {
 
 const PortfolioList = ({ notionPages }: PortfolioListProps) => {
   return (
-    <div>
+    <section className={styles.section}>
+      <h2 className={styles.title}>WORKS</h2>
       <ul className={styles.list}>
         {notionPages.map(({ id, title, summary }) => (
           <li key={id} className={styles.item}>
@@ -23,7 +24,7 @@ const PortfolioList = ({ notionPages }: PortfolioListProps) => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

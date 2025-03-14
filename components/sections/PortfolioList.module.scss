@@ -1,26 +1,30 @@
 /* PortfolioList.module.scss */
+.section {
+  & > .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--adaptiveGrey800);
+  }
+}
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   list-style: none;
   padding: 0;
-}
-
-.list li {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 5px;
-  transition: background-color 0.3s;
-  border-radius: 10px;
-}
-
-.list li:hover {
-  background-color: #f0f0f0;
-}
-
-.loading {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #888;
+  li {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: var(--adaptiveGreyOpacity50);
+    border-radius: 8px;
+    &:hover {
+      background-color: var(--adaptiveGreyOpacity100);
+    }
+    .title {
+      color: var(--adaptiveGrey800);
+    }
+    .summary {
+      color: var(--adaptiveGrey600);
+    }
+  }
 }
