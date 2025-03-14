@@ -1,76 +1,100 @@
 import { Client } from '@notionhq/client';
 import { NotionAPI } from 'notion-client';
-import { useNotionStore } from '@/lib/state';
+import { ExtendedRecordMap } from 'notion-types';
 import { getPageSummary } from './utils';
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
+// 타입 정의
+interface NotionPage {
+  id: string;
+  title: string;
+  summary: string;
+}
+
+// 노션 API 클라이언트 초기화
 export const notion = new NotionAPI();
 
-export async function getData(rootPageId: string) {
+// 캐시 타입 정의 개선
+const cache = new Map<string, ExtendedRecordMap>();
+
+/**
+ * 노션 페이지 데이터 가져오기
+ */
+export async function getData(pageId: string): Promise<ExtendedRecordMap> {
   try {
-    // console.log(`📡 Notion 페이지 데이터 가져오기: ${rootPageId}`);
-    const data = await notion.getPage(rootPageId);
+    const data = await notion.getPage(pageId);
     return data;
   } catch (error) {
-    console.error(`❌ Notion 데이터 가져오기 실패 (${rootPageId}):`, error);
-    throw error;
+    console.error(`❌ Notion 데이터 가져오기 실패 (${pageId}):`, error);
+    throw new Error(
+      `노션 페이지 데이터 가져오기 실패: ${(error as Error).message}`
+    );
   }
 }
 
-const cache = new Map<string, any>();
-
-export async function getCachedData(rootPageId: string) {
-  if (cache.has(rootPageId)) {
-    return cache.get(rootPageId);
+/**
+ * 캐시된 노션 페이지 데이터 가져오기
+ */
+export async function getCachedData(
+  pageId: string
+): Promise<ExtendedRecordMap> {
+  if (cache.has(pageId)) {
+    return cache.get(pageId)!;
   }
 
-  const data = await getData(rootPageId);
-  cache.set(rootPageId, data);
+  const data = await getData(pageId);
+  cache.set(pageId, data);
   return data;
 }
 
+// 환경 변수 검증
+const NOTION_API_KEY = process.env.NOTION_API_KEY;
+const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+if (!NOTION_API_KEY) {
+  throw new Error('❌ `NOTION_API_KEY`가 설정되지 않았습니다.');
+}
+
+// 노션 데이터베이스 클라이언트 초기화
 export const notionDatabase = new Client({
-  auth: process.env.NOTION_API_KEY,
+  auth: NOTION_API_KEY,
 });
 
-export async function getDatabase(): Promise<any[]> {
-  const databaseId = process.env.NOTION_DATABASE_ID;
-  if (!databaseId)
+/**
+ * 노션 데이터베이스에서 데이터 가져와 저장하기
+ */
+export async function fetchAndStoreDatabase(): Promise<NotionPage[]> {
+  if (!NOTION_DATABASE_ID) {
     throw new Error('❌ `NOTION_DATABASE_ID`가 설정되지 않았습니다.');
+  }
 
   try {
     const response = await notionDatabase.databases.query({
-      database_id: databaseId,
+      database_id: NOTION_DATABASE_ID,
       sorts: [{ property: 'due_date', direction: 'descending' }],
     });
 
-    const { setRecordMaps, setNotionPages } = useNotionStore.getState();
+    // 페이지 데이터 처리
+    const processedPages = await Promise.all(
+      response.results.map(async (page: any) => {
+        const recordMap = await getCachedData(page.id);
 
-    const notionPages = response.results
-      .filter((page): page is PageObjectResponse => 'properties' in page) // ✅ 타입 체크 추가
-      .map((page) => {
-        setRecordMaps(page.id, page);
-
-        // ✅ 안전한 타입 검사
-        const titleProperty = page.properties?.title;
+        // 타이틀 안전하게 추출
         const title =
-          titleProperty?.type === 'title' && titleProperty.title.length > 0
-            ? titleProperty.title[0].plain_text
-            : '제목 없음';
+          page.properties?.title?.title?.[0]?.plain_text || '제목 없음';
 
         return {
           id: page.id,
           title,
-          summary: getPageSummary(page),
+          summary: getPageSummary(recordMap),
         };
-      });
+      })
+    );
 
-    console.log('📌 저장된 Notion 페이지 배열:', notionPages);
-    setNotionPages(notionPages);
-
-    return response.results;
+    // 상태 업데이트는 컴포넌트 내에서 처리하는 것이 더 적절함
+    // 여기서는 데이터만 반환
+    return processedPages;
   } catch (error) {
     console.error('❌ Notion 데이터베이스 요청 실패:', error);
-    throw error;
+    throw new Error(`노션 데이터베이스 요청 실패: ${(error as Error).message}`);
   }
 }

@@ -26,8 +26,7 @@ export function getPageSummary(recordMap: any): string {
     .map((block: any) => block?.value)
     .filter((block: any) => block?.type === 'text' && block?.properties?.title);
 
-  // console.log('✅ 추출된 텍스트 블록:', textBlocks);
-  console.log(textBlocks[0].properties.title[0].flat().join(' '));
+  // console.log('✅ 추출된 텍스트 블록:', textBlocks[0].properties.title[0].flat().join(' '));
   return textBlocks.length > 0
     ? textBlocks[0].properties.title[0].flat().join(' ')
     : '개요 없음';
