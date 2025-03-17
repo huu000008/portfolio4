@@ -1,46 +1,63 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.56);
 }
 
 .dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #2f3437;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   overflow-y: auto;
-}
+  pointer-events: none !important;
 
-.triggerButton {
-  padding: 10px 20px;
-  background: #0070f3;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+  .inner {
+    position: relative;
+    margin: 40px auto;
+    width: 90vw;
+    max-width: 860px;
+    min-height: 500px;
+    border-radius: 28px;
+    background-color: var(--adaptiveBackground);
+    overflow: hidden;
+    padding: 24px;
+    pointer-events: auto;
+  }
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
+  color: var(--closeButtonColor, #666);
+
+  &:hover {
+    color: var(--closeButtonHoverColor, #333);
+  }
 }
 
-.title {
-  font-size: 16px;
-  font-weight: bold;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.description {
-  font-size: 14px;
-  color: gray;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    margin-top: 80px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 40px;
+  }
 }

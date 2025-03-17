@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { pretendard } from '@/public/fonts/font';
+import { pretendard } from '@/assets/styles/fonts/font';
 
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
-import '@/styles/style.scss';
+import '@/assets/styles/style.scss';
 import Header from '@/components/Header';
 import ClientThemeProvider from '@/components/ClientThemeProvider';
 

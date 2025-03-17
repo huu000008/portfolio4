@@ -40,8 +40,10 @@ const DialogContent = React.forwardRef<
         }}
         {...props}
       >
-        <div ref={localRef} tabIndex={-1} />
-        {children}
+        <div className={styles.inner}>
+          <div ref={localRef} tabIndex={-1} />
+          {children}
+        </div>
         <DialogClose className={styles.closeButton}>✕</DialogClose>
       </DialogPrimitive.Content>
     </DialogPortal>
