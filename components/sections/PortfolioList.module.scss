@@ -1,4 +1,5 @@
-/* PortfolioList.module.scss */
+@use '@/styles/mixins' as *;
+
 .section {
   & > .title {
     font-size: 24px;
@@ -13,7 +14,7 @@
   list-style: none;
   padding: 0;
   li {
-    padding: 10px;
+    padding: 40px 30px;
     margin-bottom: 5px;
     background-color: var(--adaptiveGreyOpacity50);
     border-radius: 8px;
@@ -22,9 +23,11 @@
     }
     .title {
       color: var(--adaptiveGrey800);
+      @include text-ellipsis-multiple(1);
     }
     .summary {
       color: var(--adaptiveGrey600);
+      @include text-ellipsis-multiple(2);
     }
   }
 }
