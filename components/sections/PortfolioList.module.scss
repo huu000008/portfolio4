@@ -26,8 +26,23 @@
       @include text-ellipsis-multiple(1);
     }
     .summary {
+      margin-top: 20px;
       color: var(--adaptiveGrey600);
       @include text-ellipsis-multiple(2);
     }
+  }
+}
+
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  margin-top: 10px;
+  span {
+    padding: 4px 8px;
+    background-color: var(--adaptiveGreyOpacity100);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--adaptiveGreyOpacity700);
   }
 }

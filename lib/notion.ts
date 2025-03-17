@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client';
 import { NotionAPI } from 'notion-client';
 import { ExtendedRecordMap } from 'notion-types';
-import { getPageSummary } from './utils';
+import { getPageSummary, getPageTechnology } from './utils';
 
 // 타입 정의
 interface NotionPage {
@@ -86,12 +86,11 @@ export async function fetchAndStoreDatabase(): Promise<NotionPage[]> {
           id: page.id,
           title,
           summary: getPageSummary(recordMap),
+          technology: getPageTechnology(recordMap),
         };
       })
     );
 
-    // 상태 업데이트는 컴포넌트 내에서 처리하는 것이 더 적절함
-    // 여기서는 데이터만 반환
     return processedPages;
   } catch (error) {
     console.error('❌ Notion 데이터베이스 요청 실패:', error);
