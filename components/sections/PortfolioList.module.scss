@@ -6,7 +6,6 @@
   & > .title {
     font-size: 24px;
     margin-bottom: 20px;
-    color: var(--adaptiveGrey800);
     @include sr-only;
   }
 }
@@ -21,32 +20,31 @@
   li {
     button {
       padding: 40px 30px;
-      background-color: var(--adaptiveGreyOpacity50);
+      background-color: var(--colorFg43);
       border-radius: 12px;
       cursor: pointer;
       transition: background-color 0.3s ease;
       &:hover {
-        background-color: var(--adaptiveGreyOpacity100);
+        background-color: var(--colorFg44);
       }
     }
     .title {
-      color: var(--adaptiveGrey900);
+      font-family: 'KakaoBig';
       font-size: 24px;
       font-weight: 800;
       @include text-ellipsis-multiple(1);
     }
     .summary {
       margin-top: 15px;
-      color: var(--adaptiveGrey800);
     }
-    .tag {
+    .tags {
       overflow: hidden;
       margin-top: 50px;
       white-space: nowrap;
       text-overflow: ellipsis;
-      span {
+      .tag {
         font-size: 14px;
-        color: var(--adaptiveGreyOpacity700);
+        color: var(--colorFg45);
         & + span {
           margin-left: 10px;
         }

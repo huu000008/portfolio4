@@ -34,3 +34,41 @@ export const pretendard = localFont({
     },
   ],
 });
+
+export const kakaoBig = localFont({
+  display: 'swap',
+  variable: '--font-kakao',
+  src: [
+    {
+      path: './KakaoBigSans-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: './KakaoBigSans-Bold.ttf',
+      weight: '700',
+    },
+    {
+      path: './KakaoBigSans-ExtraBold.ttf',
+      weight: '800',
+    },
+  ],
+});
+
+export const kakaoSmall = localFont({
+  display: 'swap',
+  variable: '--font-kakao-small',
+  src: [
+    {
+      path: './KakaoSmallSans-Light.ttf',
+      weight: '300',
+    },
+    {
+      path: './KakaoSmallSans-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: './KakaoSmallSans-Bold.ttf',
+      weight: '700',
+    },
+  ],
+});

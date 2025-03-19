@@ -7,7 +7,6 @@ import {
   DialogRoot,
   DialogTitle,
   DialogPortal,
-  DialogOverlay,
 } from '../ui/dialog/DialogCore';
 import styles from './PortfolioList.module.scss';
 
@@ -45,7 +44,7 @@ const PortfolioList = ({ notionPages }: PortfolioListProps) => {
         {notionPages.map(({ id, title, summary, technology }) => (
           <li key={id} className={styles.item}>
             <button onClick={() => openModal(id)}>
-              <h3 className={styles.cardTitle}>{title}</h3>
+              <strong className={styles.title}>{title}</strong>
               <p className={styles.summary}>{summary}</p>
               <div className={styles.tags}>
                 {technology.map((tech) => (
