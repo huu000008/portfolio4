@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import {
   DialogContent,
   DialogDescription,
@@ -9,21 +9,24 @@ import {
   DialogPortal,
 } from '../ui/dialog/DialogCore';
 import styles from './PortfolioList.module.scss';
+import { Collection } from 'react-notion-x/build/third-party/collection';
+import { NotionRenderer } from 'react-notion-x';
+import { ExtendedRecordMap } from 'notion-types';
 
 interface NotionPage {
   id: string;
   title: string;
   summary: string;
-  technology: string[];
+  technology?: string[];
 }
 
 interface PortfolioListProps {
   notionPages: NotionPage[];
+  pageRecordMaps: { id: string; recordMap: ExtendedRecordMap }[];
 }
 
-const PortfolioList = ({ notionPages }: PortfolioListProps) => {
+const PortfolioList = ({ notionPages, pageRecordMaps }: PortfolioListProps) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
 
   const isOpen = selectedId !== null;
 
@@ -37,6 +40,10 @@ const PortfolioList = ({ notionPages }: PortfolioListProps) => {
 
   const selectedItem = notionPages.find((item) => item.id === selectedId);
 
+  const selectedRecordMap = pageRecordMaps.find(
+    (item) => item.id === selectedId
+  )?.recordMap;
+
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>WORKS</h2>
@@ -47,7 +54,7 @@ const PortfolioList = ({ notionPages }: PortfolioListProps) => {
               <strong className={styles.title}>{title}</strong>
               <p className={styles.summary}>{summary}</p>
               <div className={styles.tags}>
-                {technology.map((tech) => (
+                {technology?.map((tech) => (
                   <span key={tech} className={styles.tag}>
                     #{tech}
                   </span>
@@ -60,12 +67,27 @@ const PortfolioList = ({ notionPages }: PortfolioListProps) => {
 
       <DialogRoot open={isOpen} onOpenChange={closeModal}>
         <DialogPortal>
-          <DialogContent ref={contentRef}>
+          <DialogContent>
             {selectedItem && (
               <>
-                <DialogTitle>{selectedItem.title}</DialogTitle>
-                <DialogDescription>{selectedItem.summary}</DialogDescription>
+                <DialogTitle className="sr-only">
+                  {selectedItem.title}
+                </DialogTitle>
+                <DialogDescription className="sr-only">
+                  {selectedItem.summary}
+                </DialogDescription>
               </>
+            )}
+            {selectedId && selectedRecordMap && (
+              <NotionRenderer
+                recordMap={selectedRecordMap}
+                fullPage={true}
+                darkMode={true}
+                rootPageId={selectedId}
+                previewImages
+                components={{ Collection }}
+                className={styles.notionWrap}
+              />
             )}
           </DialogContent>
         </DialogPortal>

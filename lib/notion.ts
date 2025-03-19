@@ -8,6 +8,7 @@ interface NotionPage {
   id: string;
   title: string;
   summary: string;
+  technology?: string[];
 }
 
 // 노션 API 클라이언트 초기화

@@ -6,9 +6,6 @@
 }
 
 .dialog {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   inset: 0;
   overflow-y: auto;
@@ -22,7 +19,6 @@
     min-height: 500px;
     border-radius: 28px;
     background-color: var(--colorBg1);
-    overflow: hidden;
     padding: 24px;
     pointer-events: auto;
     animation: slideUp 0.3s ease;
@@ -30,19 +26,23 @@
 }
 
 .closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 15px;
+  right: 15px;
   width: 30px;
   height: 30px;
-  font-size: 20px;
-  color: var(--colorFg21);
   cursor: pointer;
   pointer-events: auto;
-  background-color: var(--colorFg35);
+  font-size: 20px;
+  color: var(--colorFg8);
+  background-color: var(--colorBg24);
   border-radius: 50%;
+  transition: background-color 0.3s ease;
   &:hover {
-    color: var(--colorFg22);
+    background-color: var(--colorBg12);
   }
 }
 

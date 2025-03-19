@@ -52,3 +52,23 @@
     }
   }
 }
+.notionWrap {
+  display: flex;
+  background-color: var(--colorBg1);
+  color: var(--colorFg1);
+  [class='notion-header'] {
+    display: none;
+  }
+  [class='notion-page'] {
+    display: none;
+  }
+  .notion-page {
+    display: none;
+  }
+  [class='notion-title'] {
+    display: none;
+  }
+  [class='notion-collection-page-properties'] {
+    display: none;
+  }
+}
