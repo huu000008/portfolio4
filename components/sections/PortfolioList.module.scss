@@ -38,10 +38,11 @@
       margin-top: 15px;
     }
     .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       overflow: hidden;
       margin-top: 50px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       .tag {
         font-size: 14px;
         color: var(--colorFg45);
@@ -62,13 +63,13 @@
   [class='notion-page'] {
     display: none;
   }
-  .notion-page {
-    display: none;
-  }
   [class='notion-title'] {
     display: none;
   }
   [class='notion-collection-page-properties'] {
     display: none;
+  }
+  [class*='notion-list-disc'] {
+    padding-left: 0;
   }
 }
