@@ -1,12 +1,9 @@
-'use client';
-
-import ThemeToggle from './ThemeToggle';
 import styles from './Header.module.scss';
 
-export default function ClientWrapper() {
+export default function Header() {
   return (
-    <header className={styles.header}>
-      <ThemeToggle />
+    <header className={styles.wrap}>
+
     </header>
   );
 }

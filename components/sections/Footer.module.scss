@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: sticky;
-  top: 0;
-  z-index: -1;
+  position: relative;
+  width: 100%;
   height: 100vh;
   text-align: center;
   background-image: var(--background-image);
@@ -32,10 +31,16 @@
       color: var(--colorFg43);
     }
   }
-
   p {
     margin-top: 40px;
     font-size: 24px;
+    color: var(--colorFg43);
+  }
+  .copyright {
+    position: absolute;
+    bottom: 50px;
+    margin-top: 40px;
+    font-size: 14px;
     color: var(--colorFg43);
   }
 }

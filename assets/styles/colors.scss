@@ -1,4 +1,5 @@
 :root {
+  --background-image: url('/front_bg.jpg');
   --baseBackground: #000;
   --baseBackground1: rgba(0, 0, 0, 0.9);
   --baseBackground2: rgba(0, 0, 0, 0.8);
@@ -100,6 +101,7 @@
 }
 
 [data-theme='light'] {
+  --background-image: url('/front_bg_black.jpg');
   --baseBackground: #fff;
   --baseBackground1: rgba(255, 255, 255, 0.9);
   --baseBackground2: rgba(255, 255, 255, 0.8);
@@ -201,6 +203,7 @@
 }
 
 [data-theme='dark'] {
+  --background-image: url('/front_bg.jpg');
   --baseBackground: #000;
   --baseBackground1: rgba(0, 0, 0, 0.9);
   --baseBackground2: rgba(0, 0, 0, 0.8);

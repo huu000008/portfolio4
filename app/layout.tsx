@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { kakaoBig, kakaoSmall } from '@/assets/styles/fonts/font';
+import { kakaoBig, kakaoSmall } from '@/assets/fonts/font';
 
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
 import '@/assets/styles/style.scss';
-import Header from '@/components/sections/Header';
 import ClientThemeProvider from '@/components/ClientThemeProvider';
+import QuickBox from '@/components/sections/QuickBox';
+import Footer from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
   title: 'JOHYUKRAE',
@@ -42,8 +43,9 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ClientThemeProvider>
-          <Header />
           {children}
+          <Footer />
+          <QuickBox />
         </ClientThemeProvider>
       </body>
     </html>

@@ -12,6 +12,9 @@ import styles from './Project.module.scss';
 import { Collection } from 'react-notion-x/build/third-party/collection';
 import { NotionRenderer } from 'react-notion-x';
 import { ExtendedRecordMap } from 'notion-types';
+import Animation from '../Animation';
+import { SectionTitle } from './SectionTitle';
+import TruncatedTags from './TruncatedTags';
 
 interface NotionPage {
   id: string;
@@ -46,23 +49,17 @@ const PortfolioList = ({ notionPages, pageRecordMaps }: PortfolioListProps) => {
 
   return (
     <section className={styles.wrap}>
+      <SectionTitle>Project</SectionTitle>
       <div className={styles.inner}>
-        <h2>PROJECT</h2>
         <ul className={styles.list}>
           {notionPages.map(({ id, title, summary, technology }) => (
-            <li key={id} className={styles.item}>
+            <Animation key={id} as="li" className={styles.item}>
               <button onClick={() => openModal(id)}>
                 <strong className={styles.title}>{title}</strong>
                 <p className={styles.summary}>{summary}</p>
-                <div className={styles.tags}>
-                  {technology?.map((tech) => (
-                    <span key={tech} className={styles.tag}>
-                      #{tech}
-                    </span>
-                  ))}
-                </div>
+                <TruncatedTags technology={technology} />
               </button>
-            </li>
+            </Animation>
           ))}
         </ul>
 

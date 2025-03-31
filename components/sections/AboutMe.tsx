@@ -1,15 +1,22 @@
 import React from 'react';
 import styles from './AboutMe.module.scss';
+import Animation from '../Animation';
+import { SectionTitle } from './SectionTitle';
+import { Html5Icon } from '@/assets/icon/html5Icon';
+import { Css3Icon } from '@/assets/icon/Css3Icon';
+import { JavascriptIcon } from '@/assets/icon/JavascriptIcon';
+import { ReactIcon } from '@/assets/icon/ReactIcon';
+import { VueIcon } from '@/assets/icon/VueIcon';
 
 export const AboutMe = () => {
   return (
     <section className={styles.wrap}>
+      <SectionTitle>About Me</SectionTitle>
       <div className={styles.inner}>
-        <h2>ABOUT ME</h2>
         <div className={styles.interview}>
           <h3>Interview</h3>
           <ul>
-            <li>
+            <Animation as="li">
               <div className={styles.question}>
                 Q. 프론트엔드로 전향한 이유?
               </div>
@@ -22,8 +29,8 @@ export const AboutMe = () => {
                 Components, Redux Toolkit 등 다양한 프레임워크와 라이브러리를
                 도입해 발전할 수 있는 새로운 도전에 나서고 있습니다.
               </p>
-            </li>
-            <li>
+            </Animation>
+            <Animation as="li">
               <div className={styles.question}>
                 Q. 일에 있어 가장 중요하게 생각하는 것이 있다면? ?
               </div>
@@ -33,8 +40,8 @@ export const AboutMe = () => {
                 성능 최적화에 신경쓰면서, 다양한 사용자들이 편리하게 서비스를
                 이용 할 수 있도록 기여하고자 합니다.
               </p>
-            </li>
-            <li>
+            </Animation>
+            <Animation as="li">
               <div className={styles.question}>
                 Q. 자기계발을 위해 어떤 것들을 해왔는지?
               </div>
@@ -47,6 +54,26 @@ export const AboutMe = () => {
                 여기고,개발 과정에서 항상 개선할 점을 찾기 위해 노력하고
                 있습니다.
               </p>
+            </Animation>
+          </ul>
+        </div>
+        <div className={styles.skill}>
+          <h3>Skills</h3>
+          <ul>
+            <li>
+              <Html5Icon />
+            </li>
+            <li>
+              <Css3Icon />
+            </li>
+            <li>
+              <JavascriptIcon />
+            </li>
+            <li>
+              <ReactIcon />
+            </li>
+            <li>
+              <VueIcon />
             </li>
           </ul>
         </div>

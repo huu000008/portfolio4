@@ -43,9 +43,10 @@
     }
     .tags {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       overflow: hidden;
+      width: 100%;
       margin-top: 50px;
       .tag {
         font-size: 14px;
@@ -53,6 +54,10 @@
         & + span {
           margin-left: 10px;
         }
+      }
+      .more {
+        font-size: 14px;
+        color: var(--colorFg40);
       }
     }
   }
@@ -64,8 +69,10 @@
   [class='notion-header'] {
     display: none;
   }
-  [class='notion-page'] {
-    display: none;
+  [class*='notion-page'] {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
   }
   [class='notion-title'] {
     display: none;
@@ -73,7 +80,10 @@
   [class='notion-collection-page-properties'] {
     display: none;
   }
-  [class*='notion-list-disc'] {
-    padding-left: 0;
+  [class*='notion-h1'] {
+    font-size: 28px;
+  }
+  [class*='notion-h3'] {
+    font-size: 22px;
   }
 }
