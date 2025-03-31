@@ -1,6 +1,8 @@
 import { fetchAndStoreDatabase, getCachedData } from '@/lib/notion';
 import styles from './page.module.scss';
-import PortfolioList from '@/components/sections/PortfolioList';
+import Project from '@/components/sections/Project';
+import { MainVisual } from '@/components/sections/MainVisual';
+import { AboutMe } from '@/components/sections/AboutMe';
 
 export default async function Page() {
   const notionPages = await fetchAndStoreDatabase();
@@ -14,13 +16,10 @@ export default async function Page() {
     })
   );
   return (
-    <div className={styles.wrap}>
-      <main className={styles.main}>
-        <PortfolioList
-          notionPages={notionPages}
-          pageRecordMaps={pageRecordMaps}
-        />
-      </main>
-    </div>
+    <main className={styles.main}>
+      <MainVisual />
+      <AboutMe />
+      <Project notionPages={notionPages} pageRecordMaps={pageRecordMaps} />
+    </main>
   );
 }

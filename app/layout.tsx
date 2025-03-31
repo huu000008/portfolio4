@@ -5,7 +5,7 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
 import '@/assets/styles/style.scss';
-import Header from '@/components/Header';
+import Header from '@/components/sections/Header';
 import ClientThemeProvider from '@/components/ClientThemeProvider';
 
 export const metadata: Metadata = {

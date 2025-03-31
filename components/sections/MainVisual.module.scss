@@ -1,0 +1,41 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: -1;
+  height: 100vh;
+  text-align: center;
+  background-image: url('/front_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .box {
+    position: relative;
+    width: 100%;
+    .text_1 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -170px);
+      width: 100%;
+      font-size: 170px;
+      font-weight: 800;
+      letter-spacing: -5px;
+    }
+    .text_2 {
+      position: relative;
+      z-index: 1;
+      font-size: 46px;
+      color: var(--colorFg43);
+    }
+  }
+
+  p {
+    margin-top: 40px;
+    font-size: 24px;
+    color: var(--colorFg43);
+  }
+}

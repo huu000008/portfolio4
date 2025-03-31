@@ -1,19 +1,22 @@
 @use '@/assets/styles/mixins' as *;
 
-.section {
-  max-width: 800px;
-  margin: 0 auto;
-  & > .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    @include sr-only;
+.wrap {
+  padding: 100px 20px;
+  background-color: var(--colorBg3);
+  h2 {
+    margin-bottom: 40px;
+    font-size: 38px;
+  }
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 .list {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  // display: flex;
+  // flex-direction: column;
   gap: 40px;
   list-style: none;
   padding: 0;
@@ -36,6 +39,7 @@
     }
     .summary {
       margin-top: 15px;
+      @include text-ellipsis-multiple(4);
     }
     .tags {
       display: flex;
