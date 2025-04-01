@@ -1,9 +1,10 @@
 @use '@/assets/styles/mixins' as *;
 
 .wrap {
-  padding: 100px 20px;
+  padding: 150px 20px;
   h2 {
     margin-bottom: 40px;
+    font-family: 'KakaoBig';
     font-size: 38px;
   }
   .inner {
@@ -12,7 +13,7 @@
   .list {
     .item {
       width: 400px;
-      padding: 40px 30px;
+      padding: 60px 20px;
       background-color: var(--colorBg7);
       border-radius: 12px;
       transition: background-color 0.3s ease;
@@ -24,25 +25,28 @@
       @include text-ellipsis-multiple(1);
     }
     .summary {
-      margin-top: 40px;
-      @include text-ellipsis-multiple(2);
+      margin-top: 20px;
+      color: var(--colorFg7);
+      @include text-ellipsis-multiple(3);
     }
     .endDate {
       margin-top: 15px;
       text-align: right;
       font-size: 14px;
+      color: var(--colorFg7);
     }
     .tags {
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
       overflow: hidden;
-      gap: 5px 15px;
+      gap: 0 15px;
       width: 100%;
       height: 50px;
-      margin-top: 20px;
+      margin-top: 60px;
       .tag {
         font-size: 14px;
+        color: var(--colorFg7);
       }
       .more {
         font-size: 14px;
@@ -58,8 +62,12 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
-    border: 1px solid var(--colorFg43);
+    border: 1px solid var(--colorFg20);
     border-radius: 50%;
+    background-color: var(--baseBackground2);
+    box-shadow: 0 0.6px 0.6px -1.25px rgba(0, 0, 0, 0.12),
+      0 2.2px 2.2px -2.5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -3.75px rgba(0, 0, 0, 0.043);
     width: 40px;
     height: 40px;
     display: flex;
@@ -72,6 +80,11 @@
     }
     &.hide {
       display: none;
+    }
+    svg {
+      path {
+        fill: var(--baseForeground);
+      }
     }
   }
   .prevButton {
@@ -96,20 +109,12 @@
 
   &::before {
     left: 0;
-    background: linear-gradient(
-      to right,
-      rgba(17, 17, 17, 1) 0%,
-      rgba(17, 17, 17, 0) 100%
-    );
+    background: var(--fade-gradient-left);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(
-      to left,
-      rgba(17, 17, 17, 1) 0%,
-      rgba(17, 17, 17, 0) 100%
-    );
+    background: var(--fade-gradient-right);
   }
 
   &.hideBefore::before {

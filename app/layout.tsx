@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { kakaoBig, kakaoSmall } from '@/assets/fonts/font';
+import { pretendard } from '@/assets/fonts/font';
 
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
@@ -38,10 +38,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={kakaoBig.className + ' ' + kakaoSmall.className}
-        suppressHydrationWarning
-      >
+      <body className={pretendard.className} suppressHydrationWarning>
         <ClientThemeProvider>
           {children}
           <Footer />

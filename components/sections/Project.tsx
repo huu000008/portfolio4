@@ -64,7 +64,7 @@ const PortfolioList = ({ notionPages, pageRecordMaps }: PortfolioListProps) => {
   return (
     <section className={styles.wrap} id="project">
       <div className={styles.inner}>
-        <h2>works</h2>
+        <h2>Works</h2>
         <div
           className={`
         ${styles.swiperContainer} 

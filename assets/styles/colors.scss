@@ -1,4 +1,14 @@
 :root {
+  --fade-gradient-left: linear-gradient(
+    to right,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(17, 17, 17, 0) 100%
+  );
+  --fade-gradient-right: linear-gradient(
+    to left,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(17, 17, 17, 0) 100%
+  );
   --background-image: url('/front_bg.jpg');
   --baseBackground: #000;
   --baseBackground1: rgba(0, 0, 0, 0.9);
@@ -101,6 +111,16 @@
 }
 
 [data-theme='light'] {
+  --fade-gradient-left: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  --fade-gradient-right: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   --background-image: url('/front_bg_black.jpg');
   --baseBackground: #fff;
   --baseBackground1: rgba(255, 255, 255, 0.9);
@@ -203,6 +223,16 @@
 }
 
 [data-theme='dark'] {
+  --fade-gradient-left: linear-gradient(
+    to right,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(17, 17, 17, 0) 100%
+  );
+  --fade-gradient-right: linear-gradient(
+    to left,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(17, 17, 17, 0) 100%
+  );
   --background-image: url('/front_bg.jpg');
   --baseBackground: #000;
   --baseBackground1: rgba(0, 0, 0, 0.9);

@@ -62,13 +62,11 @@ export const AboutMe = () => {
                 Q. 프론트엔드로 전향한 이유?
               </div>
               <p>
-                웹 디자이너로 활동하며 사용자 중심 디자인, 협업, 프론트엔드 기초
-                지식을 쌓았습니다. <strong>사용자와의 소통</strong>에 대해
-                중요성을 인지하고, 더 밀접하게{' '}
-                <strong>상호작용 가능한 프로젝트</strong>를 개발하고자
-                프론트엔드 개발자로 전향을 결심하게 되었습니다. React, Styled
-                Components, Redux Toolkit 등 다양한 프레임워크와 라이브러리를
-                도입해 발전할 수 있는 새로운 도전에 나서고 있습니다.
+                웹 디자인 전공 후 코딩에 흥미를 느껴 퍼블리셔로 HTML, CSS,
+                JavaScript 등 웹 표준 작업을 경험했습니다. 이 과정에서
+                프론트엔드 개발의 매력을 느꼈고, React와 Vue 등 다양한 기술을
+                익히며 사용자 중심의 동적 애플리케이션 개발에 매력을 느껴
+                프론트엔드로 전향하게 되었습니다.
               </p>
             </Animation>
             <Animation as="li">
@@ -76,10 +74,10 @@ export const AboutMe = () => {
                 Q. 일에 있어 가장 중요하게 생각하는 것이 있다면? ?
               </div>
               <p>
-                항상 <strong>역지사지 마인드로 사용자 중심 개발을 추구</strong>
-                합니다. 직관적이고 친숙한 UI 제공과 Chrome Lighthouse를 활용해
-                성능 최적화에 신경쓰면서, 다양한 사용자들이 편리하게 서비스를
-                이용 할 수 있도록 기여하고자 합니다.
+                프론트엔드 개발자로서 항상 사용자 관점을 최우선으로 생각합니다.
+                직관적이고 일관된 UI 구현은 물론, Chrome Lighthouse를 활용한
+                성능 최적화를 통해 다양한 사용자가 쾌적하게 서비스를 이용할 수
+                있도록 기여하는 것을 중요하게 생각합니다.
               </p>
             </Animation>
             <Animation as="li">
@@ -87,20 +85,17 @@ export const AboutMe = () => {
                 Q. 자기계발을 위해 어떤 것들을 해왔는지?
               </div>
               <p>
-                지속적인 학습을 위해 스터디와 온라인 강의에 적극 참여하고,{' '}
-                <strong>
-                  낯선 기술에도 포기 하지 않고 메타인지 방식을 활용
-                </strong>
-                해 문제 해결 능력을 쌓고 있습니다. 열린 마음으로 피드백을 소중히
-                여기고,개발 과정에서 항상 개선할 점을 찾기 위해 노력하고
-                있습니다.
+                지속적인 학습을 위해 스터디와 온라인 강의에 꾸준히 참여하며,
+                새로운 기술도 메타인지를 활용해 능동적으로 익히고 있습니다.
+                피드백은 성장의 기회라 생각하고 열린 자세로 받아들이며, 개발
+                과정에서도 항상 개선점을 찾고자 노력하고 있습니다.
               </p>
             </Animation>
           </ul>
         </div>
         <div className={styles.skill}>
+          <h3>Skills</h3>
           <div className={styles.inner}>
-            <h3>Skills</h3>
             <ul>
               <li>
                 <div className={styles.title}>
@@ -108,39 +103,112 @@ export const AboutMe = () => {
                   Languages
                 </div>
                 <div className={styles.tags}>
-                  <span className={styles.tag}>JavaScript</span>
-                  <span className={styles.tag}>TypeScript</span>
-                  <span className={styles.tag}>HTML</span>
-                  <span className={styles.tag}>CSS</span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#f7df1e' }}
+                  >
+                    JavaScript
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#3178c6' }}
+                  >
+                    TypeScript
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#e34f26' }}
+                  >
+                    HTML
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#1572b6' }}
+                  >
+                    CSS
+                  </span>
                 </div>
               </li>
-
               <li>
                 <div className={styles.title}>
                   <Skill3Icon />
                   Frameworks
                 </div>
                 <div className={styles.tags}>
-                  <span className={styles.tag}>React</span>
-                  <span className={styles.tag}>Vue.js</span>
-                  <span className={styles.tag}>Next.js</span>
-                  <span className={styles.tag}>Nuxt.js</span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#61DBFB' }}
+                  >
+                    React
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#42b883' }}
+                  >
+                    Vue.js
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#5e72e4' }}
+                  >
+                    Next.js
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#41b883' }}
+                  >
+                    Nuxt.js
+                  </span>
                 </div>
               </li>
-
               <li>
                 <div className={styles.title}>
                   <Skill2Icon />
                   Libraries
                 </div>
                 <div className={styles.tags}>
-                  <span className={styles.tag}>Zustand</span>
-                  <span className={styles.tag}>React-Query</span>
-                  <span className={styles.tag}>Recoil</span>
-                  <span className={styles.tag}>Emotion</span>
-                  <span className={styles.tag}>Sass</span>
-                  <span className={styles.tag}>Vuex</span>
-                  <span className={styles.tag}>Pinia</span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#000000' }}
+                  >
+                    Zustand
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#ff4154' }}
+                  >
+                    React-Query
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#3578e5' }}
+                  >
+                    Recoil
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#d36ac2' }}
+                  >
+                    Emotion
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#cc6699' }}
+                  >
+                    Sass
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#35495e' }}
+                  >
+                    Vuex
+                  </span>
+                  <span
+                    className={styles.tag}
+                    style={{ backgroundColor: '#41b883' }}
+                  >
+                    Pinia
+                  </span>
                 </div>
               </li>
             </ul>
