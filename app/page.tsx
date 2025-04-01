@@ -3,6 +3,10 @@ import styles from './page.module.scss';
 import Project from '@/components/sections/Project';
 import { MainVisual } from '@/components/sections/MainVisual';
 import { AboutMe } from '@/components/sections/AboutMe';
+import ScrollSpy from '@/components/ScrollSpy';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default async function Page() {
   const notionPages = await fetchAndStoreDatabase();
@@ -16,10 +20,21 @@ export default async function Page() {
     })
   );
   return (
-    <main className={styles.main}>
+    <main className={styles.wrap}>
       <MainVisual />
-      <AboutMe />
-      <Project notionPages={notionPages} pageRecordMaps={pageRecordMaps} />
+      <ScrollSpy />
+      <div className={styles.container}>
+        <div className={styles.navigation}>
+          <a href="#about" data-section="about">
+            About Me
+          </a>
+          <a href="#project" data-section="project">
+            Project
+          </a>
+        </div>
+        <AboutMe />
+        <Project notionPages={notionPages} pageRecordMaps={pageRecordMaps} />
+      </div>
     </main>
   );
 }

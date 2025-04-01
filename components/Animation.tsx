@@ -9,6 +9,7 @@ interface AnimationProps {
   delay?: number;
   className?: string;
   as?: ElementType;
+  onClick?: () => void;
 }
 
 export default function Animation({
@@ -17,7 +18,8 @@ export default function Animation({
   rootMargin = '0px',
   delay = 0,
   className = '',
-  as: Tag = 'div'
+  as: Tag = 'div',
+  onClick,
 }: AnimationProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -48,10 +50,7 @@ export default function Animation({
   }, [threshold, rootMargin, delay]);
 
   return (
-    <Tag
-      ref={ref}
-      className={`fade-in-section ${className}`}
-    >
+    <Tag ref={ref} className={`fade-in-section ${className}`} onClick={onClick}>
       {children}
     </Tag>
   );

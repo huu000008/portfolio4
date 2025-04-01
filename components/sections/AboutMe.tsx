@@ -1,18 +1,59 @@
+'use client';
+
 import React from 'react';
 import styles from './AboutMe.module.scss';
 import Animation from '../Animation';
-import { SectionTitle } from './SectionTitle';
-import { Html5Icon } from '@/assets/icon/html5Icon';
-import { Css3Icon } from '@/assets/icon/Css3Icon';
-import { JavascriptIcon } from '@/assets/icon/JavascriptIcon';
-import { ReactIcon } from '@/assets/icon/ReactIcon';
-import { VueIcon } from '@/assets/icon/VueIcon';
+import Image from 'next/image';
+import { Skill1Icon } from '@/assets/icon/Skill1Icon';
+import { Skill2Icon } from '@/assets/icon/Skill2Icon';
+import { Skill3Icon } from '@/assets/icon/Skill3Icon';
 
 export const AboutMe = () => {
   return (
-    <section className={styles.wrap}>
-      <SectionTitle>About Me</SectionTitle>
+    <section className={styles.wrap} id="about">
+      <h2 className={'sr-only'}>About Me</h2>
       <div className={styles.inner}>
+        <div className={styles.introduce}>
+          <h3>Introduce</h3>
+          <ul>
+            <li>
+              <div className={styles.image}>
+                <Image
+                  src="/introduce01.png"
+                  alt="introduce"
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                />
+              </div>
+              <p>진화에 누구보다 진심인 편</p>
+            </li>
+            <li>
+              <div className={styles.image}>
+                <Image
+                  src="/introduce01.png"
+                  alt="introduce"
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                />
+              </div>
+              <p>진화에 누구보다 진심인 편</p>
+            </li>
+            <li>
+              <div className={styles.image}>
+                <Image
+                  src="/introduce01.png"
+                  alt="introduce"
+                  fill
+                  loading="lazy"
+                  objectFit="cover"
+                />
+              </div>
+              <p>진화에 누구보다 진심인 편</p>
+            </li>
+          </ul>
+        </div>
         <div className={styles.interview}>
           <h3>Interview</h3>
           <ul>
@@ -58,24 +99,52 @@ export const AboutMe = () => {
           </ul>
         </div>
         <div className={styles.skill}>
-          <h3>Skills</h3>
-          <ul>
-            <li>
-              <Html5Icon />
-            </li>
-            <li>
-              <Css3Icon />
-            </li>
-            <li>
-              <JavascriptIcon />
-            </li>
-            <li>
-              <ReactIcon />
-            </li>
-            <li>
-              <VueIcon />
-            </li>
-          </ul>
+          <div className={styles.inner}>
+            <h3>Skills</h3>
+            <ul>
+              <li>
+                <div className={styles.title}>
+                  <Skill1Icon />
+                  Languages
+                </div>
+                <div className={styles.tags}>
+                  <span className={styles.tag}>JavaScript</span>
+                  <span className={styles.tag}>TypeScript</span>
+                  <span className={styles.tag}>HTML</span>
+                  <span className={styles.tag}>CSS</span>
+                </div>
+              </li>
+
+              <li>
+                <div className={styles.title}>
+                  <Skill3Icon />
+                  Frameworks
+                </div>
+                <div className={styles.tags}>
+                  <span className={styles.tag}>React</span>
+                  <span className={styles.tag}>Vue.js</span>
+                  <span className={styles.tag}>Next.js</span>
+                  <span className={styles.tag}>Nuxt.js</span>
+                </div>
+              </li>
+
+              <li>
+                <div className={styles.title}>
+                  <Skill2Icon />
+                  Libraries
+                </div>
+                <div className={styles.tags}>
+                  <span className={styles.tag}>Zustand</span>
+                  <span className={styles.tag}>React-Query</span>
+                  <span className={styles.tag}>Recoil</span>
+                  <span className={styles.tag}>Emotion</span>
+                  <span className={styles.tag}>Sass</span>
+                  <span className={styles.tag}>Vuex</span>
+                  <span className={styles.tag}>Pinia</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

@@ -82,12 +82,13 @@ export async function fetchAndStoreDatabase(): Promise<NotionPage[]> {
         // 타이틀 안전하게 추출
         const title =
           page.properties?.title?.title?.[0]?.plain_text || '제목 없음';
-
+        const endDate = page.properties?.due_date?.date?.end;
         return {
           id: page.id,
           title,
           summary: getPageSummary(recordMap),
           technology: getPageTechnology(recordMap),
+          endDate,
         };
       })
     );

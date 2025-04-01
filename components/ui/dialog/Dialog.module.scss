@@ -1,6 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.56);
   animation: fadeIn 0.3s ease;
 }
@@ -8,6 +9,7 @@
 .dialog {
   position: fixed;
   inset: 0;
+  z-index: 11;
   overflow-y: auto;
   pointer-events: none !important;
 
@@ -19,7 +21,7 @@
     min-height: 500px;
     border-radius: 28px;
     background-color: var(--colorBg1);
-    padding: 24px;
+    padding: 40px 60px;
     pointer-events: auto;
     animation: slideUp 0.3s ease;
   }
