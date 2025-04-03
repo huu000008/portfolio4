@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 10px;
 }
 
 html,
@@ -14,6 +15,7 @@ body {
   color: var(--baseForeground);
   font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕',
     sans-serif;
+  font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.75;
@@ -21,10 +23,23 @@ body {
 }
 
 button {
+  height: 5rem;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  background-color: var(--colorBg1);
+  color: var(--colorFg1);
   cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: var(--colorBg13);
+  }
+  &:active {
+    transform: scale(1.1);
+  }
 }
 
 a {
+  display: block;
   color: inherit;
   text-decoration: none;
 }
@@ -32,9 +47,16 @@ a {
 img {
   vertical-align: top;
 }
-
+textarea,
 input {
-  color: var(--baseForeground);
+  padding: 1.2rem 1.6rem;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕',
+    sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--colorBg1);
+  color: var(--colorFg1);
+  border: none;
+  border-radius: 0.8rem;
 }
 
 .sr-only {

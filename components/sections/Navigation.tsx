@@ -10,17 +10,26 @@ export const Navigation = () => {
 
   return (
     <div className={styles.wrap}>
-      {!isHome && <Link href="/">Home</Link>}
+      {!isHome && (
+        <Link href="/" className={pathname === '/' ? styles.active : ''}>
+          Home
+        </Link>
+      )}
 
       {isHome && (
         <>
-          <Link href="#about" data-section="about">
+          <Link href="#about" data-section="about" className={styles.link}>
             About Me
           </Link>
         </>
       )}
 
-      <Link href="/board">Board</Link>
+      <Link
+        href="/works"
+        className={pathname === '/works' ? styles.active : 'a'}
+      >
+        Works
+      </Link>
     </div>
   );
 };

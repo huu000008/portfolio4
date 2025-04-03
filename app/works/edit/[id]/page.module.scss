@@ -1,0 +1,50 @@
+.wrap {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2.4rem;
+
+  .heading {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--colorFg1);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .input,
+  .textarea {
+    padding: 1.2rem 1.6rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    background-color: var(--colorBg1);
+    color: var(--baseForeground);
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: var(--colorFg24);
+  }
+
+  .textarea {
+    min-height: 100rem;
+    resize: vertical;
+  }
+
+  .button {
+    background-color: var(--colorBg1);
+    color: var(--baseForeground);
+    padding: 1.2rem 2rem;
+    border-radius: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--colorBg12);
+    }
+  }
+}

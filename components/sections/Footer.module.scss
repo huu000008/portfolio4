@@ -11,36 +11,41 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   .box {
     position: relative;
     width: 100%;
+
     .text_1 {
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translate(-50%, -170px);
+      transform: translate(-50%, -17rem);
       width: 100%;
-      font-size: 170px;
+      font-size: 17rem;
       font-weight: 800;
-      letter-spacing: -5px;
+      letter-spacing: -0.5rem;
     }
+
     .text_2 {
       position: relative;
       z-index: 1;
-      font-size: 46px;
+      font-size: 4.6rem;
       color: var(--colorFg43);
     }
   }
+
   p {
-    margin-top: 40px;
-    font-size: 24px;
+    margin-top: 4rem;
+    font-size: 2.4rem;
     color: var(--colorFg43);
   }
+
   .copyright {
     position: absolute;
-    bottom: 50px;
-    margin-top: 40px;
-    font-size: 14px;
+    bottom: 5rem;
+    margin-top: 4rem;
+    font-size: 1.4rem;
     color: var(--colorFg43);
   }
 }

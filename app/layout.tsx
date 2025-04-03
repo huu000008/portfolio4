@@ -5,10 +5,10 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
 import '@/assets/styles/style.scss';
-import ClientThemeProvider from '@/components/ClientThemeProvider';
 import QuickBox from '@/components/sections/QuickBox';
 // import Footer from '@/components/sections/Footer';
 import { Navigation } from '@/components/sections/Navigation';
+import ClientLayout from '@/components/ClientLayout';
 
 export const metadata: Metadata = {
   title: 'JOHYUKRAE',
@@ -40,12 +40,12 @@ export default function RootLayout({
         />
       </head>
       <body className={pretendard.className} suppressHydrationWarning>
-        <ClientThemeProvider>
+        <ClientLayout>
           <Navigation />
           {children}
           {/* <Footer /> */}
           <QuickBox />
-        </ClientThemeProvider>
+        </ClientLayout>
       </body>
     </html>
   );

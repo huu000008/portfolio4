@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './AboutMe.module.scss';
 import Animation from '../Animation';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Skill1Icon } from '@/assets/icon/Skill1Icon';
 import { Skill2Icon } from '@/assets/icon/Skill2Icon';
 import { Skill3Icon } from '@/assets/icon/Skill3Icon';
@@ -13,7 +13,7 @@ export const AboutMe = () => {
     <section className={styles.wrap} id="about">
       <h2 className={'sr-only'}>About Me</h2>
       <div className={styles.inner}>
-        <div className={styles.introduce}>
+        {/* <div className={styles.introduce}>
           <h3>Introduce</h3>
           <div className={styles.list}>
             <div className={styles.item}>
@@ -53,7 +53,7 @@ export const AboutMe = () => {
               <p>진화에 누구보다 진심인 편</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={styles.interview}>
           <h3>Interview</h3>
           <div className={styles.list}>

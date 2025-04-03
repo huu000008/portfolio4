@@ -14,13 +14,13 @@
 
   .inner {
     position: relative;
-    margin: 40px auto;
+    margin: 4rem auto;
     width: 90vw;
-    max-width: 860px;
-    min-height: 500px;
-    border-radius: 28px;
+    max-width: 86rem;
+    min-height: 50rem;
+    border-radius: 2.8rem;
     background-color: var(--colorBg1);
-    padding: 40px 60px;
+    padding: 4rem 6rem;
     pointer-events: auto;
   }
 }
@@ -30,17 +30,18 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 30px;
-  height: 30px;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
   pointer-events: auto;
-  font-size: 20px;
+  font-size: 2rem;
   color: var(--colorFg8);
   background-color: var(--colorBg24);
   border-radius: 50%;
   transition: background-color 0.3s ease;
+
   &:hover {
     background-color: var(--colorBg12);
   }

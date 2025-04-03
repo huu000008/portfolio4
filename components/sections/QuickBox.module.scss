@@ -5,17 +5,17 @@
   bottom: 0;
   right: 0;
   z-index: 1000;
-  padding: 20px;
+  padding: 2rem;
   ul {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
     li {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 4rem;
+      height: 4rem;
       background-color: var(--colorBg11);
       color: var(--colorFg34);
       border-radius: 50%;
