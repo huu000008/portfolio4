@@ -6,7 +6,6 @@ import {
   DialogDescription,
   DialogRoot,
   DialogTitle,
-  DialogPortal,
 } from '../ui/dialog/DialogCore';
 import styles from './Project.module.scss';
 import { Collection } from 'react-notion-x/build/third-party/collection';
@@ -131,31 +130,29 @@ const PortfolioList = ({ notionPages, pageRecordMaps }: PortfolioListProps) => {
         </div>
 
         <DialogRoot open={isOpen} onOpenChange={closeModal}>
-          <DialogPortal>
-            <DialogContent>
-              {selectedItem && (
-                <>
-                  <DialogTitle className="sr-only">
-                    {selectedItem.title}
-                  </DialogTitle>
-                  <DialogDescription className="sr-only">
-                    {selectedItem.summary}
-                  </DialogDescription>
-                </>
-              )}
-              {selectedId && selectedRecordMap && (
-                <NotionRenderer
-                  recordMap={selectedRecordMap}
-                  fullPage={true}
-                  darkMode={true}
-                  rootPageId={selectedId}
-                  previewImages
-                  components={{ Collection }}
-                  className={styles.notionWrap}
-                />
-              )}
-            </DialogContent>
-          </DialogPortal>
+          <DialogContent open={isOpen}>
+            {selectedItem && (
+              <>
+                <DialogTitle className="sr-only">
+                  {selectedItem.title}
+                </DialogTitle>
+                <DialogDescription className="sr-only">
+                  {selectedItem.summary}
+                </DialogDescription>
+              </>
+            )}
+            {selectedId && selectedRecordMap && (
+              <NotionRenderer
+                recordMap={selectedRecordMap}
+                fullPage={true}
+                darkMode={true}
+                rootPageId={selectedId}
+                previewImages
+                components={{ Collection }}
+                className={styles.notionWrap}
+              />
+            )}
+          </DialogContent>
         </DialogRoot>
       </div>
     </section>

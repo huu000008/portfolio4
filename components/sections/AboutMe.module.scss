@@ -15,10 +15,10 @@
   }
   .introduce {
     padding: 20px;
-    ul {
+    .list {
       display: flex;
       gap: 20px;
-      li {
+      .item {
         overflow: hidden;
         border: 1px solid var(--colorFg43);
         border-radius: 12px;
@@ -37,10 +37,10 @@
   }
   .interview {
     padding: 20px;
-    ul {
+    .list {
       display: flex;
       gap: 20px;
-      li {
+      .item {
         padding: 20px;
         border: 1px solid var(--colorFg43);
         border-radius: 12px;

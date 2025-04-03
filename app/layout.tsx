@@ -7,7 +7,8 @@ import 'katex/dist/katex.min.css';
 import '@/assets/styles/style.scss';
 import ClientThemeProvider from '@/components/ClientThemeProvider';
 import QuickBox from '@/components/sections/QuickBox';
-import Footer from '@/components/sections/Footer';
+// import Footer from '@/components/sections/Footer';
+import { Navigation } from '@/components/sections/Navigation';
 
 export const metadata: Metadata = {
   title: 'JOHYUKRAE',
@@ -40,8 +41,9 @@ export default function RootLayout({
       </head>
       <body className={pretendard.className} suppressHydrationWarning>
         <ClientThemeProvider>
+          <Navigation />
           {children}
-          <Footer />
+          {/* <Footer /> */}
           <QuickBox />
         </ClientThemeProvider>
       </body>

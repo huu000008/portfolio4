@@ -1,0 +1,26 @@
+.wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  padding: 10px 20px;
+  background-color: var(--colorBg3);
+  border-radius: 20px;
+  a {
+    font-family: 'KakaoBig';
+    font-size: 32px;
+    color: var(--colorFg23);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    &:hover {
+      color: var(--colorFg35);
+    }
+    &[class='active'] {
+      color: var(--colorFg1);
+      font-weight: 800;
+    }
+  }
+}

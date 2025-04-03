@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect, useRef, ElementType } from 'react';
+import { ElementType } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 interface AnimationProps {
   children: React.ReactNode;
@@ -18,40 +20,24 @@ export default function Animation({
   rootMargin = '0px',
   delay = 0,
   className = '',
-  as: Tag = 'div',
   onClick,
 }: AnimationProps) {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const currentRef = ref.current;
-    if (!currentRef) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('fade-in-visible');
-            }, delay);
-          } else {
-            entry.target.classList.remove('fade-in-visible');
-          }
-        });
-      },
-      { threshold, rootMargin }
-    );
-
-    observer.observe(currentRef);
-
-    return () => {
-      observer.unobserve(currentRef);
-    };
-  }, [threshold, rootMargin, delay]);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold,
+    rootMargin,
+  });
 
   return (
-    <Tag ref={ref} className={`fade-in-section ${className}`} onClick={onClick}>
+    <motion.div
+      ref={ref}
+      className={className}
+      onClick={onClick}
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, ease: 'easeOut', delay: delay / 1000 }}
+    >
       {children}
-    </Tag>
+    </motion.div>
   );
 }

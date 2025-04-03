@@ -1,86 +1,72 @@
 'use client';
 
-import styles from './Dialog.module.scss';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import React, { useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
+import React from 'react';
+import styles from './Dialog.module.scss';
 
 const DialogRoot = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
-const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
+const DialogPortal = DialogPrimitive.Portal;
 
-const DialogOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
-    ref={ref}
+const DialogOverlay = ({ className }: { className?: string }) => (
+  <motion.div
     className={clsx(styles.overlay, className)}
-    {...props}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.2 }}
   />
-));
-DialogOverlay.displayName = 'DialogOverlay';
+);
 
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => {
-  const localRef = useRef<HTMLDivElement>(null);
-
+const DialogContent = ({
+  children,
+  open,
+}: {
+  children: React.ReactNode;
+  open: boolean;
+}) => {
   return (
-    <DialogPortal>
-      <DialogOverlay className={styles.overlay} />
-      <DialogPrimitive.Content
-        ref={ref}
-        className={clsx(styles.dialog, className)}
-        onOpenAutoFocus={(event) => {
-          localRef.current?.focus();
-          event.preventDefault();
-        }}
-        {...props}
-      >
-        <div className={styles.inner}>
-          <div ref={localRef} tabIndex={-1} />
-          {children}
-          <DialogClose className={styles.closeButton}>✕</DialogClose>
-        </div>
-      </DialogPrimitive.Content>
+    <DialogPortal forceMount>
+      <AnimatePresence>
+        {open && (
+          <>
+            <DialogPrimitive.Overlay asChild forceMount>
+              <DialogOverlay />
+            </DialogPrimitive.Overlay>
+
+            <DialogPrimitive.Content asChild forceMount>
+              <motion.div
+                className={styles.dialog}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 40 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.8, 0.25, 1] }}
+              >
+                <div className={styles.inner}>
+                  {children}
+                  <DialogClose className={styles.closeButton}>✕</DialogClose>
+                </div>
+              </motion.div>
+            </DialogPrimitive.Content>
+          </>
+        )}
+      </AnimatePresence>
     </DialogPortal>
   );
-});
-DialogContent.displayName = 'DialogContent';
+};
 
-const DialogTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={clsx(styles.title, className)}
-    {...props}
-  />
-));
-DialogTitle.displayName = 'DialogTitle';
-
-const DialogDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={clsx(styles.description, className)}
-    {...props}
-  />
-));
-DialogDescription.displayName = 'DialogDescription';
+const DialogTitle = DialogPrimitive.Title;
+const DialogDescription = DialogPrimitive.Description;
 
 export {
   DialogRoot,
   DialogTrigger,
+  DialogClose,
   DialogPortal,
   DialogOverlay,
-  DialogClose,
   DialogContent,
   DialogTitle,
   DialogDescription,

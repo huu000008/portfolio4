@@ -15,8 +15,8 @@ export const AboutMe = () => {
       <div className={styles.inner}>
         <div className={styles.introduce}>
           <h3>Introduce</h3>
-          <ul>
-            <li>
+          <div className={styles.list}>
+            <div className={styles.item}>
               <div className={styles.image}>
                 <Image
                   src="/introduce01.png"
@@ -27,8 +27,8 @@ export const AboutMe = () => {
                 />
               </div>
               <p>진화에 누구보다 진심인 편</p>
-            </li>
-            <li>
+            </div>
+            <div className={styles.item}>
               <div className={styles.image}>
                 <Image
                   src="/introduce01.png"
@@ -39,8 +39,8 @@ export const AboutMe = () => {
                 />
               </div>
               <p>진화에 누구보다 진심인 편</p>
-            </li>
-            <li>
+            </div>
+            <div className={styles.item}>
               <div className={styles.image}>
                 <Image
                   src="/introduce01.png"
@@ -51,13 +51,13 @@ export const AboutMe = () => {
                 />
               </div>
               <p>진화에 누구보다 진심인 편</p>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <div className={styles.interview}>
           <h3>Interview</h3>
-          <ul>
-            <Animation as="li">
+          <div className={styles.list}>
+            <Animation className={styles.item}>
               <div className={styles.question}>
                 Q. 프론트엔드로 전향한 이유?
               </div>
@@ -69,7 +69,7 @@ export const AboutMe = () => {
                 프론트엔드로 전향하게 되었습니다.
               </p>
             </Animation>
-            <Animation as="li">
+            <Animation className={styles.item}>
               <div className={styles.question}>
                 Q. 일에 있어 가장 중요하게 생각하는 것이 있다면? ?
               </div>
@@ -80,7 +80,7 @@ export const AboutMe = () => {
                 있도록 기여하는 것을 중요하게 생각합니다.
               </p>
             </Animation>
-            <Animation as="li">
+            <Animation className={styles.item}>
               <div className={styles.question}>
                 Q. 자기계발을 위해 어떤 것들을 해왔는지?
               </div>
@@ -91,7 +91,7 @@ export const AboutMe = () => {
                 과정에서도 항상 개선점을 찾고자 노력하고 있습니다.
               </p>
             </Animation>
-          </ul>
+          </div>
         </div>
         <div className={styles.skill}>
           <h3>Skills</h3>
