@@ -1,10 +1,9 @@
-'use client';
-
 import PostItem from './PostItem';
+import styles from './PostList.module.scss';
 
 export default function PostList({ posts }: { posts: any[] }) {
   return (
-    <div className="space-y-6">
+    <div className={styles.wrap}>
       {posts.map((post) => (
         <PostItem
           key={post.id}

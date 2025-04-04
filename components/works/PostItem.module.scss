@@ -1,14 +1,17 @@
 .wrap {
   width: 100%;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  text-align: left;
-  border-radius: 1.2rem;
-  background-color: var(--colorFg43);
-  transition: all 0.2s ease;
-  &:hover {
-    border-color: var(--colorBg12);
+  & > a {
+    padding: 2rem;
+    text-align: left;
+    border-radius: 1.2rem;
+    background-color: var(--colorBg5);
+    transition: all 0.2s ease;
+    border-color: var(--colorBg1);
+    &:hover {
+      background-color: var(--colorBg10);
+    }
   }
+
   .title {
     font-size: 1.8rem;
     margin-bottom: 0.8rem;

@@ -11,8 +11,8 @@ interface PostItemProps {
 
 export default function PostItem({ id, title, created_at }: PostItemProps) {
   return (
-    <Animation className={styles.wrap} href={`/works/${id}`}>
-      <TransitionLink href={`/works/${id}`} className={styles.wrap}>
+    <Animation className={styles.wrap}>
+      <TransitionLink href={`/works/${id}`} className={styles.link}>
         <div className={styles.title}>{title}</div>
         <div className={styles.date}>
           {new Date(created_at).toLocaleDateString('ko-KR', {
