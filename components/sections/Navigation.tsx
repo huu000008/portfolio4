@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.scss';
+import TransitionLink from '../ui/TransitionLink';
 
 export const Navigation = () => {
   const pathname = usePathname();
@@ -11,9 +12,12 @@ export const Navigation = () => {
   return (
     <div className={styles.wrap}>
       {!isHome && (
-        <Link href="/" className={pathname === '/' ? styles.active : ''}>
+        <TransitionLink
+          href="/"
+          className={pathname === '/' ? styles.active : ''}
+        >
           Home
-        </Link>
+        </TransitionLink>
       )}
 
       {isHome && (
@@ -24,12 +28,12 @@ export const Navigation = () => {
         </>
       )}
 
-      <Link
+      <TransitionLink
         href="/works"
         className={pathname === '/works' ? styles.active : 'a'}
       >
         Works
-      </Link>
+      </TransitionLink>
     </div>
   );
 };

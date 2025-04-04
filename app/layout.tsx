@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from 'next';
 import { pretendard } from '@/assets/fonts/font';
 
@@ -6,9 +7,8 @@ import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
 import '@/assets/styles/style.scss';
 import QuickBox from '@/components/sections/QuickBox';
-// import Footer from '@/components/sections/Footer';
 import { Navigation } from '@/components/sections/Navigation';
-import ClientLayout from '@/components/ClientLayout';
+import ClientThemeProvider from '@/components/ClientThemeProvider';
 
 export const metadata: Metadata = {
   title: 'JOHYUKRAE',
@@ -21,7 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html
+      lang="ko"
+      style={{ viewTransitionName: 'root' }}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -40,12 +44,11 @@ export default function RootLayout({
         />
       </head>
       <body className={pretendard.className} suppressHydrationWarning>
-        <ClientLayout>
+        <ClientThemeProvider>
           <Navigation />
           {children}
-          {/* <Footer /> */}
           <QuickBox />
-        </ClientLayout>
+        </ClientThemeProvider>
       </body>
     </html>
   );

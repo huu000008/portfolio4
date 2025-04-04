@@ -1,5 +1,4 @@
 // import { fetchAndStoreDatabase, getCachedData } from '@/lib/notion';
-import styles from './page.module.scss';
 // import Project from '@/components/sections/Project';
 import { MainVisual } from '@/components/sections/MainVisual';
 import { AboutMe } from '@/components/sections/AboutMe';
@@ -20,10 +19,10 @@ export default async function Page() {
   //   })
   // );
   return (
-    <main className={styles.wrap}>
+    <main>
       <MainVisual />
       <ScrollSpy />
-      <div className={styles.container}>
+      <div>
         <AboutMe />
         {/* <Project notionPages={notionPages} pageRecordMaps={pageRecordMaps} /> */}
       </div>
